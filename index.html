@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Système solaire - Simple test d'animation CSS</title>
+    <style>
+      *{
+        margin: 0; padding: 0;
+      }
+      body {
+        background-color: black;
+        display: grid;
+        height: 100vh;
+        overflow: clip;
+        place-items: center;
+      }
+      .conteneur {
+        position: relative;
+        width: 40em; height: 40em;
+        font-size: 18px;
+        /* background-color: blue */
+      }
+      .conteneur .sol {
+        position: absolute;
+        width: 6em; height: 6em;
+        background-color: rgb(255, 255, 0);
+        border-radius: 50%;
+        top: 17em; left: 18em;
+        /* box-shadow: 0 0 5em rgb(252, 246, 186); */
+        animation: brillance 6s linear infinite;
+      }
+      .conteneur .terre {
+        width: 30em; height: 30em;
+        top: 5em; left: 5em;
+        animation: rotation 6.52s linear infinite;
+        /* background: orange */
+        position: absolute;
+        border-style: solid; border-width: 0.2em 0 0 0.2em; border-color: transparent transparent transparent lightblue; border-radius: 70%;
+      }
+      .conteneur .terre:before{
+        width: 3em; height: 3em;
+        border-radius: 50%;
+        top: 2.8em; left: 2.8em;
+        position: absolute;
+        content: "";
+        background: rgb(0, 213, 255);
+         /* background: orange */
+      }
+
+      .conteneur .lune {
+        width: 8em; height: 8em;
+        top: 0; left: 0; 
+        animation: rotation 2.73s linear infinite;     
+        position: absolute;
+        border-style: solid; border-width: 0.2em 0.2em 0 0; border-color: rgb(238, 238, 238) transparent transparent transparent; border-radius: 70%; 
+      }
+      .conteneur .lune:before{
+        width:1.2em; height: 1.2em;
+        border-radius: 50%;
+        top: 0.8em; right: 0.2em;
+        position: absolute;
+        content: "";
+        background: rgb(214, 214, 214);
+      }
+
+      @keyframes brillance {
+        0% {
+          box-shadow: 0 0 2em rgb(255, 255, 255);
+        }
+        50% {
+          box-shadow: 0 0 6em rgb(252, 246, 186);
+        }
+        100% {
+          box-shadow: 0 0 2em rgb(255, 255, 255);
+        }
+      }
+
+      @keyframes rotation{
+        to{
+            transform: rotate(360deg);
+        }
+      }
+
+      
+      </style>
+  </head>
+  <body>
+    <div class="conteneur">
+      <div class="sol"></div>
+      <div class="terre">
+        <div class="lune"></div>
+      </div>
+    </div>
+  </body>
+</html>
